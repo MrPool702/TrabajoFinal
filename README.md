@@ -1,7 +1,9 @@
 # TrabajoFinal
 ## integrantes
-* More Perez Moises Ernesto
-* Cahuas Vergara Miguel Angel
-* Escobedo Mori Jorgeluis
-* Aquino Iman Herly Fernando
-* Leon Leon John Sahir
+| Nombre     | Código | 
+| :---        |    ----:   |       
+|  More Perez Moises Ernesto      | 201910358 | 
+| Cahuas Vergara Miguel Angel   | 202016505 | 
+| Escobedo Mori Jorgeluis| 201924132 |
+| Aquino Iman Herly Fernando| 20171E997 |
+| Leon Leon John Sahir| 20191C036 |
