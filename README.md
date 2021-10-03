@@ -7,7 +7,8 @@
 | Escobedo Mori Jorgeluis| 201924132 |
 | Aquino Iman Herly Fernando| 20171E997 |
 | Leon Leon John Sahir| 20191C036 |
-## Video 
+## Video expositivo del grupo
+https://www.youtube.com/watch?v=xtsQ3pcKnEA
 
 ![Video Explicativo](link)
 
