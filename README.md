@@ -8,6 +8,7 @@
 | Aquino Iman Herly Fernando| 20171E997 |
 | Leon Leon John Sahir| 20191C036 |
 ## Video 
-![Video de Explicación ](link)
+
+![Video Explicativo](link)
 
 *todas os issues tiene su propia respuesta y anexos dentro de sus comentarios*
