@@ -53,9 +53,10 @@ for v  in range(len(graph)):
 for i in range(len(nodes)):
   for j in range(len(nodes)):
     if i != j:
-      distancia = math.sqrt((nodes[j].getY()-nodes[i].getY())**2 + (nodes[j].getX()-nodes[i].getX())**2)
-      if distancia <= 20:
-        graph[i].append((j,round(distancia)))
+      if nodes[j].getY() == nodes[i].getY() or nodes[j].getX() == nodes[i].getX():
+        distancia = math.sqrt((nodes[j].getY()-nodes[i].getY())**2 + (nodes[j].getX()-nodes[i].getX())**2)
+        if distancia <= 20:
+          graph[i].append((j,round(distancia)))
 
 points = [162,178,570,575,680,748,767,805,840,999,1186,1197,1378,1395]
 
@@ -82,5 +83,4 @@ def RoadGraphWithBFS(graph,points,puntosEntrega):
       file.write("Stock with node index equal to " + str(p) + "\n")
       for pd in puntosEntrega:
         file.write("Parent of the point with node index equal to " + str(pd.getID()) + " is: " + str(path[pd.getID()]) + "\n")
-
 RoadGraphWithBFS(graph,points,puntosEntrega)
