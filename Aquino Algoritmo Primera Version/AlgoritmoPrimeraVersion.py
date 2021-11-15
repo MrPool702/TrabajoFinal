@@ -3,7 +3,6 @@ import random as rand
 import csv
 import math
 import heapq as hp
-import graphviz as gv
 
 def adjlShow(L, labels=None, directed=False, weighted=False, path=[],
              layout="sfdp"):
@@ -53,81 +52,29 @@ def adjlShow(L, labels=None, directed=False, weighted=False, path=[],
           g.edge(str(u), str(v))
   return g
 
-def dijkstra(G, s):
-  n = len(G)
-  visited = [False]*n
-  path = [None]*n
-  cost = [math.inf]*n
-  cost[s] = 0
-  queue = [(0, s)]
-  while queue:
-    g_u, u = hp.heappop(queue)
-    if not visited[u]:
-      visited[u] = True
-      for v, w in G[u]:
-        f = g_u + w
-        if f < cost[v]:
-          cost[v] = f
-          path[v] = u
-          hp.heappush(queue, (f, v))
-  return path, cost
-
-
-
-def Dijkstra2(G,nodes,Almacenes,Puntos):
-     n = len(G)
-  visited = [False]*n
-  distDefault = math.sqrt((s[Almacenes].getX()-s[Puntos].getX())**2+(s[Almacenes].getY()-s[Puntos].getY())**2)
-  path = [None]*n
-  cost = [math.inf]*n
-  cost[s] = 0
-  queue = [(0, s)]
-  while queue:
-    g_u, u = hp.heappop(queue)
-    if Alamcenes=Puntos:
-      return G 
-    if not visited[u]:
-      visited[u] = True
-      valorMinimo=distDefault
-      cercano=0
-      peso=0
-      for v, w in G[u]:
-        distDefault = math.sqrt((s[Almacenes].getX()-s[Puntos].getX())**2+(s[Almacenes].getY()-s[Puntos].getY())**2)
-        f = g_u + w
-        cercano=v
-        peso=w
-        if peso<f
-          if f < cost[v]:
-            cost[v] = f
-            path[v] = u
-            hp.heappush(queue, (f, v))
-  return path, cost
-
-
-
-
-
-class Punto:
-  def __init__(self,x,y,Tipo,ide) -> None:
-    self.x = x 
-    self.y = y 
-    self.Tipo = Tipo 
-    self.id = ide
+class Point:
+  def __init__(self,x,y,types,ide) -> None:
+      self.x = x
+      self.y = y
+      self.type = types
+      self.id = ide
+  def __str__(self):
+    return "("+ str(self.x)+" ; " + str(self.y) + ")"
   def getID(self):
     return self.id
   def setID(self,ide):
     self.id = ide
   def out(self):
-    return str(self.x) + ", " + str(self.y) + ", " + str(self.Tipo) + ", " + str(self.id) + "\n"
+    return str(self.x) + ", " + str(self.y) + ", " + str(self.type) + ", " + str(self.id) + "\n"
   def getX(self):
     return self.x
   def getY(self):
     return self.y
-  def getTipo(self):
-    return self.Tipo
+  def getType(self):
+    return self.type
 
 def readFile():
-  with open("nodes.txt") as file:
+   with open("nodes.txt") as file:
     lines = file.readlines()
     arreglo = []
     for l in lines:
@@ -137,35 +84,56 @@ def readFile():
       aux3 = int(lista[3])
       elem = Punto(aux,aux2,lista[2],aux3)
       arreglo.append(elem)
-  return arreglo
+    return arreglo
 
-def EscribirPunto(arreglo):
-  aux = []
-  for i in arreglo:
-    a = i.getTipo()
-    if a == " punto":
-      aux.append(i)
-  return aux
 
- 
-nodes = readFile()
-tamaño_node=len(nodes)
-puntosEntrega = EscribirPunto(nodes)
-graph = [0]*tamaño_node
-n_graph=len(graph)
+nodos = readFile()
 
-for v  in range(n_graph):
-  graph[v] = []
+grafo = [0]*len(nodos)
+for v  in range(len(grafo)):
+  grafo[v] = []
 
-for i in range(n_graph):
-  for j in range(n_graph):
+for i in range(len(grafo)):
+  for j in range(len(grafo)):
     if i != j:
-      distancia = math.sqrt((nodes[j].getY()-nodes[i].getY())**2 + (nodes[j].getX()-nodes[i].getX())**2)
-      if distancia <= 20:
-        graph[i].append((j,round(distancia)))
+      if nodos[j].getY() == nodos[i].getY() or nodos[j].getX() == nodos[i].getX():
+        distancia = math.sqrt((nodos[j].getY()-nodos[i].getY())**2 + (nodos[j].getX()-nodos[i].getX())**2)
+        if distancia <= 20:
+          grafo[i].append((j,round(distancia)))
 
-#Puntos de Entrega
-P=[3349, 3353, 3354, 3355, 3357, 3358, 3359, 3360, 3361, 3366, 3367, 3370, 3375, 3376, 3377, 3379, 3381, 3384, 3388, 3389, 3392, 3393, 3394, 3397, 3398, 3400, 3402, 3403, 3404, 3407, 3409, 3410, 3411, 3413, 3414, 3416, 3417, 3421, 3422, 3423, 3428,
+def RoadGraphWithBFS(graph,almacenes,puntosEntrega):
+  with open("result.txt",mode="w") as file:
+    for p in almacenes:
+      path = BFS(graph,p.getID())
+      file.write("Stock with node index equal to " + str(p.getID()) + "\n")
+      for pd in puntosEntrega:
+        file.write("Parent of the point with node index equal to " + str(pd.getID()) + " is: " + str(path[pd.getID()]) + "\n")
+
+visited = [False]*len(grafo)
+
+def dijkstra(G, puntos_Entrega, Almacenes):
+  nodos = len(G)
+  visitados = [False]*nodos
+  padres = [None]*nodos
+  costos = [math.inf]*nodos
+  costos[puntos_Entrega] = 0
+  Almacenes=puntos_Entrega
+  queue = [(0,puntos_Entrega)]
+  while queue:
+    costoA, actual = queue.pop(0)
+    if not visitados[actual]: 
+      visitados[actual] = True
+      for vecino, costo in G[actual]:
+        total = costoA + costo
+        if total < costos[vecino]:
+          costos[vecino] = total
+          padres[vecino] = actual
+          queue.append((total, vecino))
+  return padres, costos
+
+distribucion = [3211,3217,3302,3374,3472,3611,3891,3905,3915,4061,4181,4413,4437,4476]
+
+a = [3349, 3353, 3354, 3355, 3357, 3358, 3359, 3360, 3361, 3366, 3367, 3370, 3375, 3376, 3377, 3379, 3381, 3384, 3388, 3389, 3392, 3393, 3394, 3397, 3398, 3400, 3402, 3403, 3404, 3407, 3409, 3410, 3411, 3413, 3414, 3416, 3417, 3421, 3422, 3423, 3428,
 3429, 3431, 3432, 3433, 3435, 3436, 3437, 3440, 3441, 3443, 3445, 3446, 3447, 3448, 3449, 3450, 3451, 3453, 3454, 3455, 3456, 3459, 3461, 3462, 3463, 3466, 3468, 3469, 3471, 3475, 3476, 3477, 3483, 3484, 3485, 3486, 3487, 3489, 3492, 3493, 3494,
 3496, 3497, 3498, 3500, 3504, 3505, 3506, 3509, 3512, 3514, 3515, 3516, 3517, 3518, 3520, 3523, 3526, 3527, 3528, 3529, 3531, 3533, 3534, 3535, 3536, 3537, 3541, 3543, 3550, 3551, 3552, 3559, 3563, 3564, 3565, 3566, 3567, 3570, 3571, 3574, 3576,
 3579, 3583, 3587, 3588, 3589, 3590, 3594, 3596, 3598, 3603, 3604, 3605, 3606, 3608, 3610, 3614, 3616, 3618, 3620, 3621, 3622, 3623, 3625, 3626, 3628, 3630, 3631, 3632, 3633, 3634, 3637, 3638, 3639, 3641, 3643, 3644, 3647, 3652, 3655, 3656, 3657,
@@ -181,22 +149,17 @@ P=[3349, 3353, 3354, 3355, 3357, 3358, 3359, 3360, 3361, 3366, 3367, 3370, 3375,
 4290, 4294, 4365, 4366, 4367, 4371, 4372, 4373, 4374, 4375, 4376, 4379, 4380, 4383, 4384, 4385, 4386, 4388, 4389, 4391, 4393, 4397, 4398, 4399, 4400, 4401, 4403, 4404, 4405, 4407, 4408, 4416, 4419, 4423, 4428, 4429, 4430, 4431, 4435, 4438, 4439]
 
 
-
-points=[3211,3217,3302,3374,3472,3611,3891,3905,3915,4061,4181,4413,4437,4476]   #almacenes
-
-
-def Camino_Dijkstra(graph,Nodes,points,puntosEntrega):
-  with open("nuevo.txt",mode="w") as file:
-    for p in points:
-      path,cost = Dijkstra2(graph,Nodes,points,puntosEntrega)
-      file.write("Stock con indice al nodo  " + str(p) + "\n")
-      for pd in puntosEntrega:
-        file.write("Parent del nodo coincide con  " + str(pd.getID()) + " es: " + str(path[pd.getID()]) + "\n")
-        file.write("Cost hacia el indice del nodo  " + str(cost[i]) + "\n")
-        
-
-path,cost = dijkstra(graph,3211)
-print(path)
-Camino_Dijkstra(graph,nodes,points,puntosEntrega)
-adjlShow(graph,weighted=True,path=path)
+def Camino_Dijkstra(grafo, almacenes, puntosEntrega):
  
+  with open("ra.txt", mode= "w") as file:
+    for i in almacenes:
+      path, cost = dijkstra(grafo, i, puntosEntrega)
+      file.write("Almacen " + str(i) + " Costos:\n")
+      for j in puntosEntrega:
+        file.write("Punto " + str(j) + " Costo: " + str(cost[j]) + " Parent: "+str(path[j]) +"\n")
+
+
+path,cost = dijkstra(graph,0,distribucion)
+print(path)       
+Camino_Dijkstra(grafo,a,distribucion)
+adjlShow(graph,weighted=True,path=path)
