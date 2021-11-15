@@ -128,7 +128,7 @@ def AlgoritmoMoises(grafo, almacenes, puntosEntrega):
       p, c = dijkstra(grafo, i.getID(), puntosEntrega[cont])
       file.write("Almacen " + str(i.getID()) + " Costos:\n")
       for j in puntosEntrega[cont]:
-        file.write("Punto " + str(j) + " Costo: " + str(c[cont][j]))
+        file.write("Punto " + str(j) + " Costo: " + str(c[j]) + "\n")
     cont += 1
 
-a, b = AlgoritmoMoises(grafo,a,distribucion)
+AlgoritmoMoises(grafo,a,distribucion)
