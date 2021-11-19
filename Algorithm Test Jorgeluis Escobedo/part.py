@@ -3,7 +3,6 @@ import random as rand
 import csv
 import math
 import heapq as hp
-
 class Point:
   def __init__(self,x,y,types,ide) -> None:
       self.x = x
