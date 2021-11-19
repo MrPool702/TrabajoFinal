@@ -166,3 +166,4 @@ with open('otherNodes.csv',mode='w') as otherFile:
         y,x = corners[i]
         otherWriter.writerow([str(cont),str(x),str(y)])
         cont += 1
+        
