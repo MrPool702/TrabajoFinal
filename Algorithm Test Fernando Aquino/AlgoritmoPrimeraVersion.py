@@ -163,3 +163,4 @@ path,cost = dijkstra(graph,0,distribucion)
 print(path)       
 Camino_Dijkstra(grafo,a,distribucion)
 adjlShow(graph,weighted=True,path=path)
+
