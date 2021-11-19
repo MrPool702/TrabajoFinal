@@ -90,3 +90,4 @@ def VRP(nodes, start, end, costPer):
                         way.append(comparable[0])
                         interation+=1
     return way, interation*costPer
+
