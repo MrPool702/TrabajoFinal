@@ -135,3 +135,4 @@ def readDistributionPointsMiguel(G,nodes):
             path, _ = algoritmoMiguel(G,nodes,almacenes[n],line[i])
             print(roadPath(path,almacenes[n],line[i]))  
 readDistributionPointsMiguel(graph,nodes)
+
