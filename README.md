@@ -13,3 +13,4 @@ https://www.youtube.com/watch?v=xtsQ3pcKnEA
 ![Video Explicativo](link)
 
 *todas los issues tiene su propia respuesta y anexos dentro de sus comentarios*
+
