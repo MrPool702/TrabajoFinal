@@ -20,7 +20,7 @@ https://www.youtube.com/watch?v=xtsQ3pcKnEA
 
 - CURSO DE Complejidad algorítmica
 - Carrera de ingeniería de Software
-- Sección SI43
+- Sección WV72
 - Ciclo 2021-02
 
 # CONTENIDO
