@@ -64,9 +64,6 @@ def createGrah(n):
     return g
 
 
-PuntosEntregasXintegrante()
-AlmacenesXintegrante()
-
 '''
     para obtener el grafo:
     nodos= readNodes("Puntos.csv")
