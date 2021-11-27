@@ -17,7 +17,7 @@ https://www.youtube.com/watch?v=UjpI2oN7iUg
 
 # Informe del Trabajo Final
 
-####UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS
+#### UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS
 
 - CURSO DE Complejidad algorítmica
 - Carrera de ingeniería de Software
