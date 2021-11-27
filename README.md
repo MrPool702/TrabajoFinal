@@ -7,6 +7,7 @@
 | Escobedo Mori Jorgeluis| 201924132 |
 | Aquino Iman Herly Fernando| 20171E997 |
 | Leon Leon John Sahir| 20191C036 |
+
 *todas los issues tiene su propia respuesta y anexos dentro de sus comentarios*
 ## Video expositivo del grupo trabajo  parcial
 https://www.youtube.com/watch?v=xtsQ3pcKnEA
