@@ -11,7 +11,7 @@
 ## Video expositivo del grupo trabajo  parcial
 https://www.youtube.com/watch?v=xtsQ3pcKnEA
 
-## Video expositivo del grupo trabajo  parcial
+## Video expositivo del grupo trabajo  final
 https://www.youtube.com/watch?v=UjpI2oN7iUg
 
 # Informe del Trabajo Final
