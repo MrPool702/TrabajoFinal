@@ -54,9 +54,6 @@ La función heurística es uno de los conceptos más básicos de la inteligencia
 - # Back Tracking:
 Back tracking es el algoritmo de búsqueda profunda más conocido para el recorrido de árboles y grafos pues con este se puede recorrer cada uno de los nodos que conforman la estructura a recorrer, para el desarrollo del trabajo final uno de nuestros compañeros hizo uso de esta técnica en sus algoritmos con la finalidad de obtener un recorrido completo del grafo y de esa forma encontrar el camino más corto entre nodos. 
 
-- # Relajación lineal:  
-
-Es una estrategia de búsqueda por la cual se sigue una heurística consiste poder elegir la opción optima en cada caso local y esperar a dar con una solución general optima. Este esquema es el que menos dificultades presenta para diseñar y comprobar su funcionamiento.
 
 # Prueba de algoritmos
 para la parte final del trabajo cada integrante del grupo desarrollo e implemento una mejora al algoritmo de Dijkstra haciendo uso de nuevos conceptos aprendidos durante el curso y algunos otros conceptos aprendidos mediante repositorios académicos, uno de los conceptos más usado en la implementación de los algoritmos fueron las funciones heurísticas, pues con esta técnica se podía limitar la búsqueda del algoritmo de Dijkstra y a la vez obtener un mejor tiempo de compilación. Por otro lado, otro de los conceptos usados fue el algoritmo estrella con esta función se buscó mejorar el tiempo de compilación del algoritmo y encontrar el camino mas corto entre nodos más eficiente.
